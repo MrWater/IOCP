@@ -276,11 +276,10 @@ CIocp::__WorkerThreadFunc(CIocp* pIocp)
 			//ÊÍ·ÅÄÚ´æ
 			if (pIoContext != nullptr)
 			{
-				/*pIocp->m_mutex.lock();
+				pIocp->m_mutex.lock();
 				pIocp->m_listIoContextNeedtoFree.remove(pIoContext);
-				DELETE_PTR(pIoContext);
-				deleteCnt++;
-				pIocp->m_mutex.unlock();*/
+				DELETE_PTR_SINGLE(pIoContext);
+				pIocp->m_mutex.unlock();
 
 			}
 			//==================================
