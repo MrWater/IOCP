@@ -1,0 +1,9 @@
+﻿  dllmain.cpp
+  stdafx.cpp
+  iocp.cpp
+h:\github\iocp\iocp\iocp.h(79): warning C4251: “iocp::CIocp::m_clients”: class“std::allocator<iocp::IOCP_SOCKETINFO_PTR>”需要有 dll 接口由 class“iocp::CIocp”的客户端使用
+  h:\github\iocp\iocp\iocp.h(79): note: 参见“std::allocator<iocp::IOCP_SOCKETINFO_PTR>”的声明
+  正在生成代码...
+    正在创建库 H:\GitHub\IOCP\IOCP\Debug\IOCP.lib 和对象 H:\GitHub\IOCP\IOCP\Debug\IOCP.exp
+  IOCP.vcxproj -> H:\GitHub\IOCP\IOCP\Debug\IOCP.dll
+  IOCP.vcxproj -> H:\GitHub\IOCP\IOCP\Debug\IOCP.pdb (Full PDB)
