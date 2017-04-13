@@ -35,9 +35,9 @@ namespace iocp
 		~CIocp();
 
 		/*开启服务*/
-		void Start(const ADDRESS_FAMILY&, const ADDRESS&, const PORT&);
+		void StartService(const ADDRESS_FAMILY& family, const ADDRESS& address, const PORT& port);
 		/*停止服务*/
-		void Stop();
+		void StopService();
 
 	private:
 		/*初始化*/
@@ -51,28 +51,28 @@ namespace iocp
 		void __Listen();
 
 		/*构造重叠IO的套接字*/
-		void __ConstructSocket(SOCKET&);
+		void __ConstructSocket(SOCKET& socket);
 		/*创建完成端口*/
 		void __CreateComletionPort();
 		/*绑定完成端口*/
-		void __BindCompletionPort(IOCP_SOCKETINFO_PTR);
+		void __BindCompletionPort(IOCP_SOCKETINFO_PTR pSockInfo);
 
 		/*Accept事件处理*/
-		void __OnAccept(IOCP_IOCONTEXT_PTR) ;
+		void __OnAccept(IOCP_IOCONTEXT_PTR pIoContext) ;
 		/*Recv事件处理*/
-		void __OnRecv(IOCP_IOCONTEXT_PTR) const;
+		void __OnRecv(IOCP_IOCONTEXT_PTR pIoContext) const;
 		/*Send事件处理*/
-		void __OnSend(IOCP_IOCONTEXT_PTR) const;
+		void __OnSend(IOCP_IOCONTEXT_PTR pIoContext) const;
 
 		/*投递Accept*/
 		bool __PostAccept();
 		/*投递Recv*/
-		bool __PostRecv(IOCP_SOCKETINFO_PTR);
+		bool __PostRecv(IOCP_SOCKETINFO_PTR pSockInfo);
 		/*投递Send*/
-		bool __PostSend(IOCP_SOCKETINFO_PTR);
+		bool __PostSend(IOCP_SOCKETINFO_PTR pSockInfo);
 
 		/*工作者线程调用*/
-		static void __WorkerThreadFunc(CIocp*);
+		static void __WorkerThreadFunc(CIocp* pIocp);
 
 	private:
 		//服务端

@@ -23,11 +23,11 @@ CIocp::CIocp()
 
 CIocp::~CIocp()
 {
-	__Uninitialize();
+	StopService();
 }
 
 void 
-CIocp::Start(
+CIocp::StartService(
 	const ADDRESS_FAMILY& addressFamily, 
 	const ADDRESS& address, 
 	const PORT& port)
@@ -60,7 +60,7 @@ CIocp::Start(
 }
 
 void
-CIocp::Stop()
+CIocp::StopService()
 {
 	if (m_bStoped)
 		return;
